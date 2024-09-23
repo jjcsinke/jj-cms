@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "JJCS\\CMS\\": "src"
+            "JJCS\\CMS\\": "src",
+            "JJCS\\Tests\\": "tests"
         }
     },
     "authors": [
@@ -35,5 +36,9 @@
                 "CMS": "JJCS\\CMS\\Facades\\CMSFacade"
             }
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^9.0",
+        "phpunit/phpunit": "^11.3"
     }
 }
