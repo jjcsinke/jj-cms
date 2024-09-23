@@ -1,0 +1,39 @@
+{
+    "name": "jjcsinke/laravel-cms",
+    "description": "CMS Module for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "JJCS\\CMS\\": "src"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jan-Jaap",
+            "email": "mail@mrpaaj.nl"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": "^8.2",
+        "illuminate/contracts": "^11.0",
+        "illuminate/support": "^11.0",
+        "illuminate/database": "^11.0",
+        "illuminate/routing": "^11.0",
+        "illuminate/http": "^11.0"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "CmsServiceProvider"
+            ],
+            "aliases": {
+                "CMS": "JJCS\\CMS\\Facades\\CMSFacade"
+            }
+        }
+    }
+}
