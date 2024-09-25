@@ -7,7 +7,7 @@ use JJCS\Tests\TestCase;
 
 class Test extends TestCase
 {
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [CmsServiceProvider::class];
     }

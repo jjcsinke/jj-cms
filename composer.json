@@ -7,7 +7,7 @@
         "psr-4": {
             "JJCS\\CMS\\": "src",
             "JJCS\\Tests\\": "tests",
-            "Database\\Factories\\JJCS\\CMS\\Models\\": "src/database/factories"
+            "Database\\Factories\\JJCS\\CMS\\Models\\": "database/factories"
         }
     },
     "authors": [

@@ -11,20 +11,23 @@ class CmsServiceProvider extends ServiceProvider
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/cms.php' => config_path('cms.php'),
+                __DIR__ . '/../../config/cms.php' => config_path('cms.php'),
             ], 'cms-config');
 
+            $this->publishes([
+                __DIR__ . '/../resources/assets' => resource_path('assets/jjcsinke/laravel-cms')
+            ], 'cms-vue-components');
+
             $this->publishesMigrations([
-                __DIR__.'/../database/migrations' => database_path('migrations'),
-            ]);
+                __DIR__ . '/../../database/migrations' => database_path('migrations'),
+            ], 'cms-migrations');
         }
 
         $this->loadMigrationsFrom([
-            __DIR__.'/../database/migrations'
+            __DIR__ . '/../../database/migrations'
         ]);
 
-        $this->loadRoutesFrom(__DIR__ . '/../routes/api.php');
-
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/api.php');
     }
 
     public function register()
@@ -36,18 +39,9 @@ class CmsServiceProvider extends ServiceProvider
         });
     }
 
-    protected function publishConfigs(): void
-    {
-        $this->publishes([
-            __DIR__ . '/../config/cms.php' => config_path('cms.php'),
-        ], 'cms-config');
-
-    }
-
     protected function registerConfig(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/cms.php', 'cms');
-
+        $this->mergeConfigFrom(__DIR__ . '/../../config/cms.php', 'cms');
     }
 
 }
