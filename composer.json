@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "JJCS\\CMS\\": "src",
+            "JJCS\\CMS\\": "backend",
             "JJCS\\Tests\\": "tests",
             "Database\\Factories\\JJCS\\CMS\\Models\\": "database/factories"
         }

@@ -1,0 +1,28 @@
+{
+  "name": "laravel-cms",
+  "version": "0.0.1",
+  "description": "CMS frontend",
+  "exports": {
+    "./components": "./frontend/components/index.js",
+    "./routes": "./frontend/routes/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jjcsinke/laravel-cms.git"
+  },
+  "keywords": [
+    "vue",
+    "laravel",
+    "vuetify",
+    "cms"
+  ],
+  "author": "Jan-Jaap Sinke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jjcsinke/laravel-cms/issues"
+  },
+  "homepage": "https://github.com/jjcsinke/laravel-cms#readme",
+  "devDependencies": {
+    "vue": "^3.5.8"
+  }
+}
