@@ -11,6 +11,11 @@ class Content extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'slug',
+        'type'
+    ];
+
     protected $casts = [
         'type' => ContentType::class
     ];

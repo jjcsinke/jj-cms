@@ -2,20 +2,25 @@
 
 namespace JJCS\Tests\Feature\Content;
 
+use Illuminate\Support\Arr;
 use JJCS\CMS\Enums\ContentType;
 use JJCS\CMS\Models\Content;
 use JJCS\Tests\TestCase;
 use PHPUnit\Framework\Attributes\Test;
 
-class SingleTest extends TestCase
+class CreateTest extends TestCase
 {
 
     #[Test]
-    public function content_response_structure(): void
+    public function create_content(): void
     {
-        $content = Content::factory()->create();
+        $data = [
+            'slug' => 'test-slug',
+            'type' => Arr::random(ContentType::cases())->value,
+        ];
 
-        $this->get(route('content.show', $content))
+        $this->post(route('content.store', $data))
+            ->assertSuccessful()
             ->assertJsonStructure([
                 'data' => [
                     'id',
