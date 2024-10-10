@@ -3,7 +3,7 @@
 namespace Database\Factories\JJCS\CMS\Models;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use JJCS\CMS\Models\Article;
+use JJCS\CMS\Models\Content;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Child>
@@ -11,7 +11,7 @@ use JJCS\CMS\Models\Article;
 class ArticleFactory extends Factory
 {
 
-    protected $model = Article::class;
+    protected $model = Content::class;
 
     /**
      * Define the model's default state.

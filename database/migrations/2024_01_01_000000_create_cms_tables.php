@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use JJCS\CMS\Enums\ContentType;
 
 return new class extends Migration {
     /**
@@ -17,9 +18,10 @@ return new class extends Migration {
             $table->softDeletes();
         });
 
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('content', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
+            $table->string('type')->default(ContentType::Page->value);
             $table->foreignId('category_id')->nullable()->constrained('categories')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes();
@@ -30,13 +32,13 @@ return new class extends Migration {
         });
 
 
-        Schema::create('article_translations', function (Blueprint $table) {
+        Schema::create('content_translations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('article_id')->constrained('articles')->onDelete('cascade');
+            $table->foreignId('content_id')->constrained('content')->onDelete('cascade');
             $table->string('locale');
             $table->string('title');
             $table->text('content');
-            $table->unique(['article_id', 'locale']);
+            $table->unique(['content_id', 'locale']);
             $table->timestamps();
             $table->softDeletes();
         });
@@ -47,8 +49,8 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('article_translations');
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('content_translations');
+        Schema::dropIfExists('content');
         Schema::dropIfExists('categories');
     }
 };
