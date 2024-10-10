@@ -1,2 +1,2 @@
-# laravel-cms
+# JJ_CMS
 CMS Module for Laravel
