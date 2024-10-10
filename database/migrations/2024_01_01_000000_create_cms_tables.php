@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->softDeletes();
         });
 
-        Schema::create('content', function (Blueprint $table) {
+        Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
             $table->string('type')->default(ContentType::Page->value);

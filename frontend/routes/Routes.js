@@ -1,7 +1,7 @@
 export const Routes = [
     {
-        path: "articles",
-        name: "articles",
-        component: () => import("../views/Articles/Index.vue"),
+        path: "content",
+        name: "content",
+        component: () => import("../views/Content/Index.vue"),
     },
 ]

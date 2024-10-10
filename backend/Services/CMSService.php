@@ -8,4 +8,22 @@ class CMSService
     {
         return 'Hello World';
     }
+
+    public function menu(): array
+    {
+        return [
+            [
+                'name' => 'Home',
+                'url' => '/',
+            ],
+            [
+                'name' => 'About',
+                'url' => '/about',
+            ],
+            [
+                'name' => 'Contact',
+                'url' => '/contact',
+            ],
+        ];
+    }
 }

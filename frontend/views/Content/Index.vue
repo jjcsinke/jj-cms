@@ -1,8 +1,8 @@
 <template>
-  <h1>Articles Index</h1>
+  <h1>Content Index</h1>
 </template>
 <script>
 export default {
-  name: "ArticlesIndex",
+  name: "ContentIndex",
 };
 </script>

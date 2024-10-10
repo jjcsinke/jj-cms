@@ -4,20 +4,23 @@ namespace JJCS\CMS\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use JJCS\CMS\ContentCollection;
+use JJCS\CMS\Http\Requests\Content\IndexRequest;
+use JJCS\CMS\Http\Requests\Content\ShowRequest;
+use JJCS\CMS\Http\Resources\ContentCollection;
 use JJCS\CMS\Http\Resources\ContentResource;
 use JJCS\CMS\Models\Content;
 
 class ContentController extends Controller
 {
 
-    public function index(Request $request): ContentCollection
+    public function index(IndexRequest $request): ContentCollection
     {
-        return ContentCollection::make(Content::paginate());
+        $content = Content::type($request->type)->paginate();
+        return ContentCollection::make($content);
     }
 
-    public function show(Request $request, Content $article): ContentResource
+    public function show(ShowRequest $request, Content $content): ContentResource
     {
-        return ContentResource::make($article);
+        return ContentResource::make($content);
     }
 }

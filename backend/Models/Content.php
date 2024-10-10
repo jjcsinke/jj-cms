@@ -19,4 +19,9 @@ class Content extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function scopeType($query, ContentType $type = null): void
+    {
+        $query->when($type, fn($q) => $q->where('type', $type));
+    }
 }
