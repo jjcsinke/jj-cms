@@ -3,6 +3,7 @@
 namespace JJCS\CMS\Http\Requests\Content;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use JJCS\CMS\Enums\ContentType;
 
@@ -10,7 +11,10 @@ class UpdateRequest extends FormRequest
 {
     public function authorize(): bool
     {
-        return true;
+        $user = Auth::user();
+
+        dump($user->permissions->toArray());
+        return Auth::user()->can('update', $this->route('content'));
     }
 
     public function rules(): array
